@@ -1,39 +1,39 @@
 # SupraTools Telegram Bot
 
-Telegram-Bot für Preise, Marktdaten und Tools rund um das Supra-Ökosystem (SUPRA und ausgewählte Supra-native Coins).
+Telegram bot for prices, market data, and tools around the Supra ecosystem (SUPRA and select Supra-native coins).
 
-> Dieses Verzeichnis enthält ausschließlich Dokumentation (README + Changelog). Der Quellcode des Bots wird nicht öffentlich bereitgestellt.
+> This directory contains documentation only (README + Changelog). The bot's source code is not made public.
 
-## Sprache
+## Language
 
-Der Bot ist vollständig zweisprachig (Deutsch/Englisch), umschaltbar per `/lang`. In Gruppen gilt die Einstellung für alle Mitglieder und kann nur von Admins geändert werden.
+The bot is fully bilingual (German/English), toggleable via `/lang`. In groups the setting applies to everyone and can only be changed by admins.
 
-## Befehle
+## Commands
 
-| Befehl | Beschreibung |
-|--------|--------------|
-| `/sprice` oder `/sprice <Symbol\|Name\|Adresse>` (Alias: `/preis`) | SUPRA- bzw. Altcoin-Preis anzeigen. Für getrackte Coins inkl. Chart, Marktkapitalisierung und 1h/24h/7d-Veränderung; für weitere Atmos-handelbare Coins Live-Preis über Atmos-Suche |
-| `/address <Symbol\|Name>` | Contract-Adresse & Suprascan-Link eines Coins |
-| `/sns <Name.supra \| 0x-Adresse>` | Supra Name Service: Auflösung Name → Adresse und Adresse → Name |
-| `/alert <Preis>` oder `/alert <Symbol> <Preis>` | Preis-Alarm setzen |
-| `/compare <Coin1> <Coin2>` | Market-Cap-Vergleich zweier Coins, inkl. hochgerechnetem Preis von Coin1 auf Basis der Marktkapitalisierung von Coin2. Ist ein Coin nicht auf Atmos gelistet, wird der Preis/die Marktkapitalisierung über CoinGecko nachgeschlagen |
-| `/currency USD\|EUR` | Anzeige-Währung für Preise & Chart ändern (nur Gruppen-Admins) |
-| `/dapps` | Live-dApps im Supra-Ökosystem anzeigen |
-| `/lang` | Sprache ändern (DE/EN) (nur Gruppen-Admins) |
-| `/settopic` oder `/settopic <Name\|ID\|all>` | Bot auf ein Forum-Topic beschränken (nur Admins) |
-| `/singlemode ON <COIN>` oder `/singlemode OFF` | Bot auf einen einzigen Coin für `/sprice`/`/preis` festlegen (nur Gruppen-Admins) |
-| `/help` | Diese Befehlsübersicht anzeigen |
+| Command | Description |
+|---------|--------------|
+| `/sprice` or `/sprice <symbol\|name\|address>` (alias: `/preis`) | Show SUPRA or altcoin price. For tracked coins includes chart, market cap, and 1h/24h/7d change; for other Atmos-tradeable coins, a live price via Atmos lookup |
+| `/address <symbol\|name>` | Contract address & Suprascan link for a coin |
+| `/sns <name.supra \| 0x-address>` | Supra Name Service resolution: name → address and address → name |
+| `/alert <price>` or `/alert <symbol> <price>` | Set a price alert |
+| `/compare <coin1> <coin2>` | Market cap comparison of two coins, including coin1's extrapolated price based on coin2's market cap. If a coin isn't listed on Atmos, price/market cap is looked up via CoinGecko |
+| `/currency USD\|EUR` | Change the display currency for prices & chart (group admins only) |
+| `/dapps` | Show dApps live on Supra |
+| `/lang` | Change language (DE/EN) (group admins only) |
+| `/settopic` or `/settopic <name\|ID\|all>` | Restrict the bot to a forum topic (admins only) |
+| `/singlemode ON <COIN>` or `/singlemode OFF` | Lock `/sprice`/`/preis` to a single coin (group admins only) |
+| `/help` | Show this command overview |
 
-## Getrackte Coins
+## Tracked coins
 
-Mit vollem Chart-, Marktkapitalisierungs- und Zeitverlauf-Support: `SUPRA`, `SUPRAWR`, `JOSH`, `RAGE`, `LUCKY`, `IWBTC` (bridged BTC), `IETH` (bridged ETH), `SOLID`, `TSUPRA`.
+With full chart, market cap, and historical support: `SUPRA`, `SUPRAWR`, `JOSH`, `RAGE`, `LUCKY`, `IWBTC` (bridged BTC), `IETH` (bridged ETH), `SOLID`, `TSUPRA`.
 
-Weitere auf Atmos gelistete Coins können über `/sprice` per Live-Lookup abgefragt werden, auch ohne historischen Chart.
+Other coins listed on Atmos can be queried via `/sprice` through a live lookup, without historical chart data.
 
-## Preisquelle
+## Price source
 
-Preise werden primär über den Supra-DEX Atmos (swap-basierte Kursableitung) ermittelt. Ist ein Coin dort nicht gelistet, greift `/compare` als Fallback auf die CoinGecko-API zurück.
+Prices are primarily derived from the Supra DEX Atmos (swap-based price derivation). If a coin isn't listed there, `/compare` falls back to the CoinGecko API.
 
-## Betrieb
+## Operation
 
-Der Bot läuft als dauerhafter systemd-Service auf der SupraTools-Infrastruktur und wird automatisch neu gestartet.
+The bot runs as a persistent systemd service on the SupraTools infrastructure and restarts automatically.

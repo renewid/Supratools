@@ -1,23 +1,23 @@
 # Changelog
 
-Alle nennenswerten Änderungen am SupraTools Telegram Bot werden hier dokumentiert.
+All notable changes to the SupraTools Telegram Bot are documented here.
 
-Format angelehnt an [Keep a Changelog](https://keepachangelog.com/de/1.0.0/).
+Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-> Hinweis: Dieser Changelog wurde am 2026-07-02 eingeführt und beginnt beim damals aktuellen Funktionsstand (`v0.8 beta`). Änderungen vor diesem Datum sind nicht rückwirkend erfasst.
+> Note: this changelog was introduced on 2026-07-02 and starts at the feature set current at that time (`v0.8 beta`). Changes before this date are not tracked retroactively.
 
 ## [v0.8 beta] - 2026-07-02
 
-### Enthalten
-- `/sprice` (Alias `/preis`) – Preisabfrage für getrackte Coins (Chart, Marktkapitalisierung, 1h/24h/7d) sowie Live-Lookup weiterer Atmos-gelisteter Coins
-- `/address` – Contract-Adresse & Suprascan-Link
-- `/sns` – Supra Name Service Auflösung (Name ↔ Adresse)
-- `/alert` – Preis-Alarme
-- `/compare` – Market-Cap-Vergleich zweier Coins, mit CoinGecko-Fallback für nicht auf Atmos gelistete Coins
-- `/currency` – Umschaltbare Anzeigewährung (USD/EUR)
-- `/dapps` – Übersicht aktiver Supra-dApps
-- `/lang` – Umschaltbare Sprache (DE/EN)
-- `/settopic` – Beschränkung auf ein Forum-Topic
-- `/singlemode` – Beschränkung von `/sprice`/`/preis` auf einen einzelnen Coin
-- `/help` – Vollständige Befehlsübersicht
-- Getrackte Coins: SUPRA, SUPRAWR, JOSH, RAGE, LUCKY, IWBTC, IETH, SOLID, TSUPRA
+### Included
+- `/sprice` (alias `/preis`) – price lookup for tracked coins (chart, market cap, 1h/24h/7d) plus live lookup for other Atmos-listed coins
+- `/address` – contract address & Suprascan link
+- `/sns` – Supra Name Service resolution (name ↔ address)
+- `/alert` – price alerts
+- `/compare` – market cap comparison of two coins, with CoinGecko fallback for coins not listed on Atmos
+- `/currency` – switchable display currency (USD/EUR)
+- `/dapps` – overview of active Supra dApps
+- `/lang` – switchable language (DE/EN)
+- `/settopic` – restriction to a forum topic
+- `/singlemode` – restriction of `/sprice`/`/preis` to a single coin
+- `/help` – full command overview
+- Tracked coins: SUPRA, SUPRAWR, JOSH, RAGE, LUCKY, IWBTC, IETH, SOLID, TSUPRA
