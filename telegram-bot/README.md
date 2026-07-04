@@ -22,10 +22,11 @@ The bot is fully bilingual (German/English), toggleable via `/lang`. In groups t
 | `/lang` | Change language (DE/EN) (group admins only) |
 | `/settopic` or `/settopic <name\|ID\|all>` | Restrict the bot to a forum topic (admins only) |
 | `/singlemode ON <COIN>` or `/singlemode OFF` | Lock `/sprice`/`/preis` to a single coin (group admins only) |
-| `/subscribe` or `/subscribe <coin> <limit> [<topic>]` | Trade-volume alert for a coin: pushes a message whenever an Atmos swap trades it above the given volume. `<topic>` is optional - defaults to the current topic, or the main group for chats with no topics. Only one alert per topic; subscribing a new coin there replaces the previous one (group admins only) |
+| `/subscribe` or `/subscribe <coin> <limit> [<topic>]` | Trade-volume alert for a coin: pushes a message whenever an Atmos swap trades it above the given volume. `<limit>` must be greater than 5 (in the group's display currency). `<topic>` is optional - defaults to the current topic, or the main group for chats with no topics. Only one alert per topic; subscribing a new coin there replaces the previous one (group admins only) |
 | `/unsubscribe <coin>` | Remove a trade-volume alert (group admins only) |
 | `/viewsub` | List a group's active trade-volume alerts, from anywhere in the group (group admins only) |
-| `/top10 [1d\|7d\|1m\|1y]` | Biggest recorded trades per subscribed coin/topic for one rolling window (aliases: 24h/1w/4w/12m); defaults to 7d if omitted, always shown in USD |
+| `/top10 [1d\|7d\|1m\|1y]` | Biggest recorded trades per subscribed coin/topic for one rolling window (aliases: 24h/1w/4w/12m); defaults to 7d if omitted, always shown in USD. Each entry shows a relative size bar, a rank with medal/creature icon, and a timestamp formatted for the bot's language |
+| `/top5 [1d\|7d\|1m\|1y]` | Same as `/top10`, limited to the top 5 |
 | `/help` | Show this command overview |
 
 ## Tracked coins
@@ -40,10 +41,10 @@ Prices are primarily derived from the Supra DEX Atmos (swap-based price derivati
 
 ## Trade-volume alerts (`/subscribe`)
 
-- Alerts show which coin was bought/sold and the amount on each side of the swap (resolved from the transaction's on-chain swap event), plus the total volume and a Suprascan link.
-- Displayed amounts follow the group's `/currency` setting (USD/EUR); `/top10` amounts are always shown in USD regardless of that setting.
+- Alerts show which coin was bought and which was sold, each on its own line, with the traded amount on each side of the swap (resolved from the transaction's on-chain swap event), plus the total volume and a Suprascan link.
+- Displayed amounts follow the group's `/currency` setting (USD/EUR); `/top10`/`/top5` amounts are always shown in USD regardless of that setting. The alert `<limit>` itself must be greater than 5 in that currency.
 - Only one active alert per forum topic - subscribing a new coin to a topic replaces whatever was subscribed there before.
-- `/top10` ranks the biggest recorded trades per coin over 24h/7d/30d/365d. Rankings are shared across every topic/chat subscribed to the same coin rather than duplicated per topic, and only cover trades recorded since this feature shipped (2026-07-04) - there is no historical backfill.
+- `/top10` and `/top5` rank the biggest recorded trades per coin over 24h/7d/30d/365d. Rankings are shared across every topic/chat subscribed to the same coin rather than duplicated per topic, and only cover trades recorded since this feature shipped (2026-07-04) - there is no historical backfill. Each entry is shown with a relative volume bar, a rank number with a medal (top 3) or a themed size icon (🦈🐬🐟🐠🦑🦀🦐 for ranks 4-10), and a timestamp formatted for the bot's language (DE `dd.mm.yyyy hh:mm`, EN `yyyy-mm-dd hh:mm`).
 
 ## Operation
 

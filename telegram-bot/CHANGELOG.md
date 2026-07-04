@@ -6,6 +6,16 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 > Note: this changelog was introduced on 2026-07-02 and starts at the feature set current at that time (`v0.8 beta`). Changes before this date are not tracked retroactively.
 
+## [v0.91 beta] - 2026-07-04
+
+### Added
+- `/top5` – same as `/top10`, limited to the top 5 trades
+
+### Changed
+- `/subscribe` now requires `<limit>` to be greater than 5 (in the group's display currency); smaller values are rejected with an error
+- `/top10`/`/top5` output redesigned: each entry now shows a relative volume bar, a rank number paired with a medal (top 3) or a themed size icon (ranks 4-10), and a timestamp formatted for the bot's language instead of a fixed format
+- Trade alerts now show the bought/sold amounts on two separate lines instead of one line joined by an arrow
+
 ## [v0.9 beta] - 2026-07-04
 
 ### Added
