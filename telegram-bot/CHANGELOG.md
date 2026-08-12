@@ -6,6 +6,39 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 > Note: this changelog was introduced on 2026-07-02 and starts at the feature set current at that time (`v0.8 beta`). Changes before this date are not tracked retroactively.
 
+## [v0.96 beta] - 2026-08-12
+
+### Changed
+- `/sprice`/`/preis`: for coins not tradeable on Atmos at all, the price lookup now walks a fallback chain - Supra Oracle, then CoinGecko, then CoinMarketCap - instead of stopping at CoinGecko. The reply always states which source the number came from (e.g. "via CoinGecko, live")
+
+## [v0.95 beta] - 2026-08-07
+
+### Added
+- `/galaxy <address or name.supra>` - renders a wallet's holdings as a solar system (SUPRA as the central star, every other held coin orbiting as a planet sized by USD value), priced live via Atmos
+
+## [v0.94 beta] - 2026-07-31
+
+### Changed
+- `/sprice`/`/preis` now shows a coin's live on-chain supply next to its market cap, and market cap is now also shown as a SUPRA-equivalent figure alongside the USD value
+
+## [v0.93 beta] - 2026-07-30
+
+### Added
+- New tracked coins with full chart/market cap/history support: `ROBBIE` (2026-07-15), `SUPRABAG` (2026-07-16), `LEO` (2026-07-30)
+- `/tracked` - lists all coins with full price history support
+- `/calculate <coin> <new SUPRA price>` - a coin's theoretical market cap at some hypothetical new SUPRA price, same coin resolution as `/compare`
+
+## [v0.92 beta] - 2026-07-05
+
+### Added
+- `/stats` or `/stats <week|month|year>` - pre-generated weekly/monthly/yearly trade recap per subscribed coin, always in USD
+- `/stats auto` - toggle automatic posting of the recap into the current topic (group admins only)
+- `/top10`/`/top5` entries now also show a buy/sell direction arrow, matching the arrow already used in live trade alerts
+
+### Fixed
+- Trade-volume alerts and `/top10`/`/top5` no longer count multi-hop swaps where the subscribed coin was merely a pass-through pool leg (e.g. LEO → SUPRA → GLOOPO alerting a SUPRA subscription even though SUPRA was never actually bought or sold)
+- The legacy on-chain SUPRA coin type was sometimes displayed/matched as `SupraCoin` instead of `SUPRA` in swap detection, which had been silently breaking the pass-through filter above for genuine direct SUPRA trades
+
 ## [v0.91 beta] - 2026-07-04
 
 ### Added
