@@ -27,6 +27,7 @@ The bot is fully bilingual (German/English), toggleable via `/lang`. In groups t
 | `/stats` or `/stats <week\|month\|year>` | Pre-generated trade recap per subscribed coin, always in USD |
 | `/stats auto` | Toggle automatic posting of the recap into the current topic (group admins only) |
 | `/subscribe` or `/subscribe <coin> <limit> [<topic>]` | Trade-volume alert for a coin: pushes a message whenever an Atmos swap trades it above the given volume. `<limit>` must be greater than 5 (in the group's display currency). `<topic>` is optional - defaults to the current topic, or the main group for chats with no topics. Only one alert per topic; subscribing a new coin there replaces the previous one (group admins only) |
+| `/suprafx` | Platform status for SupraFX (suprafx.ai) - a separate cross-chain swap/settlement platform built on Supra, unrelated to Atmos. Shows chain health, lifetime volume, supported assets, reserve backing, recent trade requests, and a top-5-by-volume ranking |
 | `/unsubscribe <coin>` | Remove a trade-volume alert (group admins only) |
 | `/viewsub` | List a group's active trade-volume alerts, from anywhere in the group (group admins only) |
 | `/top10 [1d\|7d\|1m\|1y]` | Biggest recorded trades per subscribed coin/topic for one rolling window (aliases: 24h/1w/4w/12m); defaults to 7d if omitted, always shown in USD. Each entry shows a relative size bar, a buy/sell direction arrow, a rank with medal/creature icon, and a timestamp formatted for the bot's language |
@@ -54,6 +55,13 @@ Prices are primarily derived from the Supra DEX Atmos (swap-based price derivati
 - Displayed amounts follow the group's `/currency` setting (USD/EUR); `/top10`/`/top5` amounts are always shown in USD regardless of that setting. The alert `<limit>` itself must be greater than 5 in that currency.
 - Only one active alert per forum topic - subscribing a new coin to a topic replaces whatever was subscribed there before.
 - `/top10` and `/top5` rank the biggest recorded trades per coin over 24h/7d/30d/365d. Rankings are shared across every topic/chat subscribed to the same coin rather than duplicated per topic, and only cover trades recorded since this feature shipped (2026-07-04) - there is no historical backfill. Each entry is shown with a relative volume bar, a rank number with a medal (top 3) or a themed size icon (🦈🐬🐟🐠🦑🦀🦐 for ranks 4-10), and a timestamp formatted for the bot's language (DE `dd.mm.yyyy hh:mm`, EN `yyyy-mm-dd hh:mm`).
+
+## SupraFX (`/suprafx`)
+
+SupraFX (suprafx.ai) is a separate cross-chain swap/settlement platform built on Supra (RFQ orderbook + BFT-consensus "Settlement Council") - unrelated to Atmos, and not used as a price source anywhere else in the bot, since its tradeable assets (SUPRA, ETH, USDT, USDC and their i-wrapped Supra versions) are already covered elsewhere.
+
+- Matched (executed) trades are polled and recorded continuously, so the top-5-by-volume ranking reflects real trading history, not just whatever fits in a single live API call.
+- USD volume per trade is computed from whichever leg of the pair is priceable: a USD-pegged stable asset's own amount, or the SUPRA leg converted via the bot's own tracked SUPRA price.
 
 ## Operation
 

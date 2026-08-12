@@ -6,6 +6,11 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 > Note: this changelog was introduced on 2026-07-02 and starts at the feature set current at that time (`v0.8 beta`). Changes before this date are not tracked retroactively.
 
+## [v0.97 beta] - 2026-08-12
+
+### Added
+- `/suprafx` - platform status for SupraFX (suprafx.ai), a separate cross-chain swap/settlement platform built on Supra, unrelated to Atmos: chain health (validator quorum, batch height), lifetime settled volume, supported assets, per-asset proof-of-reserves backing, the most recent public trade requests, and a top-5-by-volume ranking of matched trades (tracked over time, not just a live snapshot)
+
 ## [v0.96 beta] - 2026-08-12
 
 ### Changed
