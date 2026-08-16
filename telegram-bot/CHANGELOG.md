@@ -6,6 +6,12 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 > Note: this changelog was introduced on 2026-07-02 and starts at the feature set current at that time (`v0.8 beta`). Changes before this date are not tracked retroactively.
 
+## [v0.98 beta] - 2026-08-16
+
+### Added
+- `/cashexploit <0x-address | name.supra>` (DMs only) - checks whether a wallet bought CASH during the Solido CASH stablecoin exploit window and thus qualifies for Solido's redeem program. Analysis only, no guarantee - the final decision rests solely with the Solido team
+- `/leoex [1d|7d|1m|1y]` - top 5 most profitable trades by LeoEx, an arbitrage system on Supra, ranked by gross profit (before its trader/treasury profit split) in SUPRA and USD. Tracks every trader wallet the system routes through, not a single fixed address. History starts 2026-08-01
+
 ## [v0.97 beta] - 2026-08-12
 
 ### Added

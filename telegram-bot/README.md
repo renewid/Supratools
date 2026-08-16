@@ -17,11 +17,13 @@ The bot is fully bilingual (German/English), toggleable via `/lang`. In groups t
 | `/sns <name.supra \| 0x-address>` | Supra Name Service resolution: name → address and address → name |
 | `/alert <price>` or `/alert <symbol> <price>` | Set a price alert |
 | `/calculate <coin> <new SUPRA price>` | A coin's theoretical market cap at some hypothetical new SUPRA price, assuming its price relative to SUPRA stays constant. Same coin resolution as `/compare` |
+| `/cashexploit <0x-address \| name.supra>` (DMs only) | Checks whether a wallet bought CASH during the Solido CASH stablecoin exploit window and thus qualifies for Solido's redeem program. Analysis only, no guarantee - the final decision rests solely with the Solido team |
 | `/compare <coin1> <coin2>` | Market cap comparison of two coins, including coin1's extrapolated price based on coin2's market cap. If a coin isn't listed on Atmos, price/market cap is looked up via CoinGecko |
 | `/currency USD\|EUR` | Change the display currency for prices & chart (group admins only) |
 | `/dapps` | Show dApps live on Supra |
 | `/galaxy <0x-address \| name.supra>` | Render a wallet's holdings as a solar system - SUPRA as the central star, every other held coin orbiting as a planet sized by USD value, priced live via Atmos |
 | `/lang` | Change language (DE/EN) (group admins only) |
+| `/leoex [1d\|7d\|1m\|1y]` | Top 5 most profitable trades by LeoEx, an arbitrage system on Supra, ranked by gross profit (before its trader/treasury profit split) in SUPRA and USD. Aliases 24h/1w/4w/12m; defaults to 7d. History starts 2026-08-01 |
 | `/settopic` or `/settopic <name\|ID\|all>` | Restrict the bot to a forum topic (admins only) |
 | `/singlemode ON <COIN>` or `/singlemode OFF` | Lock `/sprice`/`/preis` to a single coin (group admins only) |
 | `/stats` or `/stats <week\|month\|year>` | Pre-generated trade recap per subscribed coin, always in USD |
@@ -62,6 +64,10 @@ SupraFX (suprafx.ai) is a separate cross-chain swap/settlement platform built on
 
 - Matched (executed) trades are polled and recorded continuously, so the top-5-by-volume ranking reflects real trading history, not just whatever fits in a single live API call.
 - USD volume per trade is computed from whichever leg of the pair is priceable: a USD-pegged stable asset's own amount, or the SUPRA leg converted via the bot's own tracked SUPRA price.
+
+## LeoEx (`/leoex`)
+
+LeoEx is an arbitrage system on Supra - not one dedicated bot wallet, but a system multiple trader wallets execute trades through, all sharing one fixed profit-split address. The ranking shows **gross** profit (the combined result before that split), since that's the figure comparable to profit percentages LeoEx itself reports. Trade detection works across every trader wallet that uses the system, not just a single tracked address.
 
 ## Operation
 
