@@ -19,6 +19,7 @@ The bot is fully bilingual (German/English), toggleable via `/lang`. In groups t
 | `/calculate <coin> <new SUPRA price>` | A coin's theoretical market cap at some hypothetical new SUPRA price, assuming its price relative to SUPRA stays constant. Same coin resolution as `/compare` |
 | `/cashexploit <0x-address \| name.supra>` (DMs only) | Checks whether a wallet bought CASH during the Solido CASH stablecoin exploit window and thus qualifies for Solido's redeem program. Analysis only, no guarantee - the final decision rests solely with the Solido team |
 | `/compare <coin1> <coin2>` | Market cap comparison of two coins, including coin1's extrapolated price based on coin2's market cap. If a coin isn't listed on Atmos, price/market cap is looked up via CoinGecko |
+| `/contract` | Official contract data for SUPRA: on Supra L1 (native/legacy coin, its paired Fungible Asset object, and iSUPRA - a separate SupraNova asset, not the same token) and on Ethereum (the SupraNova Bridge's ERC-20), including the live bridged total |
 | `/currency USD\|EUR` | Change the display currency for prices & chart (group admins only) |
 | `/dapps` | Show dApps live on Supra |
 | `/galaxy <0x-address \| name.supra>` | Render a wallet's holdings as a solar system - SUPRA as the central star, every other held coin orbiting as a planet sized by USD value, priced live via Atmos |
@@ -29,6 +30,7 @@ The bot is fully bilingual (German/English), toggleable via `/lang`. In groups t
 | `/stats` or `/stats <week\|month\|year>` | Pre-generated trade recap per subscribed coin, always in USD |
 | `/stats auto` | Toggle automatic posting of the recap into the current topic (group admins only) |
 | `/subscribe` or `/subscribe <coin> <limit> [<topic>]` | Trade-volume alert for a coin: pushes a message whenever an Atmos swap trades it above the given volume. `<limit>` must be greater than 5 (in the group's display currency). `<topic>` is optional - defaults to the current topic, or the main group for chats with no topics. Only one alert per topic; subscribing a new coin there replaces the previous one (group admins only) |
+| `/supply` | SUPRA's total and circulating supply on Supra L1, plus how much has been bridged to Ethereum (live, and as a percentage of circulating supply) |
 | `/suprafx` | Platform status for SupraFX (suprafx.ai) - a separate cross-chain swap/settlement platform built on Supra, unrelated to Atmos. Shows chain health, lifetime volume, supported assets, reserve backing, recent trade requests, and a top-5-by-volume ranking |
 | `/unsubscribe <coin>` | Remove a trade-volume alert (group admins only) |
 | `/viewsub` | List a group's active trade-volume alerts, from anywhere in the group (group admins only) |
@@ -68,6 +70,10 @@ SupraFX (suprafx.ai) is a separate cross-chain swap/settlement platform built on
 ## LeoEx (`/leoex`)
 
 LeoEx is an arbitrage system on Supra - not one dedicated bot wallet, but a system multiple trader wallets execute trades through, all sharing one fixed profit-split address. The ranking shows **gross** profit (the combined result before that split), since that's the figure comparable to profit percentages LeoEx itself reports. Trade detection works across every trader wallet that uses the system, not just a single tracked address.
+
+## SupraNova Bridge (`/contract`, `/supply`)
+
+SupraNova Bridge is Supra's official bridge to Ethereum, live since 2026-08-18. `/contract` and `/supply` both cover the bridged SUPRA ERC-20 on Ethereum alongside SUPRA's native Supra L1 figures, so the two chains can be checked side by side without needing a block explorer.
 
 ## Operation
 
